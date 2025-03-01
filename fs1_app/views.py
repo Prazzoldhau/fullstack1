@@ -3,8 +3,12 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.shortcuts import render  # ✅ Import render function
 from .models import SubmittedData
+from django.http import HttpResponse
 
 @csrf_exempt  # Disable CSRF for API requests
+def home(request):
+    return HttpResponse("Welcome to the Home Page!")  # Temporary home page
+
 def submit_data(request):
     if request.method == 'POST':
         try:
